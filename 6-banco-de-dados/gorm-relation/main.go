@@ -6,32 +6,32 @@ import (
 )
 
 type Category struct {
-	ID int `gorm:"primaryKey"`
-	Name string
-	Products []Product			// has many
+	ID       int `gorm:"primaryKey"`
+	Name     string
+	Products []Product // has many
 }
 
 type SerialNumber struct {
-	ID int `gorm:"primaryKey`
-	Value string
-	ProductID int				// has one Product
+	ID        int `gorm:"primaryKey`
+	Value     string
+	ProductID int // has one Product
 }
 
 type Tag struct {
-	ID int `gorm:"primaryKey`
-	Name string
-	Products []Product	`gorm:"many2many:products_tags;"`	// many to many 
+	ID       int `gorm:"primaryKey`
+	Name     string
+	Products []Product `gorm:"many2many:products_tags;"` // many to many
 }
 
 type Product struct {
-	ID    int `gorm:"primatyKey"`
-	Name  string
-	Price float64
-	CategoryID int			// belongs to Category
-	Category Category
-	SerialNumber SerialNumber	// has one SerialNumber
-	Tags []Tag	`gorm:"many2many:products_tags;"`	// many to many 
-	gorm.Model			// inclui funcionalidades do GORM
+	ID           int `gorm:"primatyKey"`
+	Name         string
+	Price        float64
+	CategoryID   int // belongs to Category
+	Category     Category
+	SerialNumber SerialNumber // has one SerialNumber
+	Tags         []Tag        `gorm:"many2many:products_tags;"` // many to many
+	gorm.Model                // inclui funcionalidades do GORM
 }
 
 func main() {
@@ -52,23 +52,20 @@ func main() {
 	})
 
 	tag1 := Tag{Name: "Promoção"}
-	tag2 := Tag{Name: "Lançamento"}
-	db.Create(&[]Tag{
-		tag1,
-		tag2,
-	})
+	db.Create(&tag1)
 
+	tag2 := Tag{Name: "Lançamento"}
+	db.Create(&tag2)
 
 	// Create product
 	db.Create(&[]Product{
-		{Name: "Smartphone", Price: 2000, CategoryID: 1, Tags: []Tag{tag1,tag2},},
-		{Name: "Notebook", Price: 4999, CategoryID: 1, Tags: []Tag{},},
-		{Name: "Teclado", Price: 200, CategoryID: 1, Tags: []Tag{},},
-		{Name: "PHP para iniciantes", Price: 50, CategoryID: 2, Tags: []Tag{tag1,tag2},},
-		{Name: "Laravel V1", Price: 50, CategoryID: 2, Tags: []Tag{tag1,tag2},},
-		{Name: "Java", Price: 120, CategoryID: 2, Tags: []Tag{},},
+		{Name: "Smartphone", Price: 2000, CategoryID: 1, Tags: []Tag{tag1, tag2}},
+		{Name: "Notebook", Price: 4999, CategoryID: 1, Tags: []Tag{}},
+		{Name: "Teclado", Price: 200, CategoryID: 1, Tags: []Tag{}},
+		{Name: "PHP para iniciantes", Price: 50, CategoryID: 2, Tags: []Tag{tag1, tag2}},
+		{Name: "Laravel V1", Price: 50, CategoryID: 2, Tags: []Tag{tag1, tag2}},
+		{Name: "Java", Price: 120, CategoryID: 2, Tags: []Tag{}},
 	})
-
 
 	// Create serial number
 	db.Create(&[]SerialNumber{
