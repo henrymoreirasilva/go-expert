@@ -1,0 +1,10 @@
+{{ template "topo.html"}}
+    <table>
+        {{ range . }}
+        <tr>
+            <td>{{ .Nome }}</td>
+            <td>{{ .CargaHoraria }}</td>
+        </tr>
+        {{ end }}
+    </table>
+{{ template "rodape.html"}}
