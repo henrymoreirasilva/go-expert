@@ -29,6 +29,7 @@ func NewProduct(name string, price float64) (*Product, error) {
 		Price:     price,
 		CreatedAt: time.Now(),
 	}
+
 	err := product.Validate()
 	if err != nil {
 		return nil, err
