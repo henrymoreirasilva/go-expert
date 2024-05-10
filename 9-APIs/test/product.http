@@ -9,3 +9,19 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/products/d3ce632e-6c8b-4998-8898-86896e8e59c4
 Content-Type: application/json
+
+
+###
+GET http://localhost:8080/products
+
+###
+PUT http://localhost:8080/products/e8cdf70c-7a73-4c9f-a250-a6369b29e9f8
+Content-Type: application/json
+
+{
+    "name": "MOUSE",
+    "price": 12.10
+}
+
+###
+DELETE http://localhost:8080/products/e8cdf70c-7a73-4c9f-a250-a6369b29e9f8
