@@ -1,0 +1,21 @@
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "name": "Jhon Doe",
+    "email": "jd@net.com",
+    "password": "123456"
+}
+
+###
+GET http://localhost:8080/users/jd@net.com
+
+###
+POST http://localhost:8080/users/generate_token
+Content-Type: application/json
+
+{
+    "email": "jd@net.com",
+    "password": "123456"
+}
+
