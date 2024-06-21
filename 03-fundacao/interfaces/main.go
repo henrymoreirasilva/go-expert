@@ -23,21 +23,21 @@ type Empresa struct {
 	Endereco
 }
 
-func (c Cliente) Desativar() {
+func (c *Cliente) Desativar() {
 	c.Ativo = false
 	println(c.Ativo)
 }
-func (c Empresa) Desativar() {
+func (c *Empresa) Desativar() {
 	c.Ativo = false
 	println(c.Ativo)
 }
 
-func (c Cliente) Ativar() {
+func (c *Cliente) Ativar() {
 	c.Ativo = true
 	println(c.Ativo)
 }
 
-func (c Empresa) Ativar() {
+func (c *Empresa) Ativar() {
 	c.Ativo = true
 	println(c.Ativo)
 }
@@ -54,5 +54,5 @@ func main() {
 	}
 
 	zoomwi.Desativar()
-
+	println(zoomwi.Ativo)
 }
