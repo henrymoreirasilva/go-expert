@@ -7,7 +7,7 @@ func Soma(a, b int) int {
 	return a + b
 }
 
-type conta struct {
+type Conta struct {
 	Agencia string
 	Conta   string
 	saldo   float64
